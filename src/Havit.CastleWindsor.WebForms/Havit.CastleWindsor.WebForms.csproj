@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net472</TargetFramework>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!-- NuGet -->
+  <PropertyGroup>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<PackageVersion>1.8.2</PackageVersion>
+	<IncludeContentInPack>true</IncludeContentInPack>
+	<Description>HAVIT .NET Framework Extensions - Castle Windsor support for WebForms</Description>
+	<!-- Cílíme jen na WebForms, kde contentFiles nemá smysl (protože WebForms nepoužívají nový csproj, tudíž nepoužívají PackageReference, ale packages.config. -->
+	<ContentTargetFolders>content</ContentTargetFolders>
+	<Company>HAVIT</Company>
+	<Authors>HAVIT</Authors>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Castle.Windsor" Version="4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Services" Pack="false" />
+  </ItemGroup>
+
+</Project>
