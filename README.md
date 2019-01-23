@@ -42,7 +42,7 @@ There are many areas you can use Dependency Injection in WebForms applications n
   - Any ProviderBase based provider created by System.Web.Configuration.ProvidersHelper.InstantiateProvider. e.g. custom sessionstate provider
 
 ## Known limitations
-Because it is not possible to use Dependency Injection through WebOjectActivator in Web Services (*.asmx), we added a workaround for this case, so you can injection to web services via proerties. 
+Because it is not possible to use Dependency Injection through WebOjectActivator in Web Services (*.asmx), we added a workaround for this case, so you can do dependency injection to web services via properties. 
 
 ### How to inject to Web Services
 1. Web Service must inherit from abstract class **Havit.CastleWindsor.WebForms.InjectableWebServiceBase**
@@ -53,7 +53,4 @@ Because it is not possible to use Dependency Injection through WebOjectActivator
 We have prepared a simple example appliction with one page, where is used Dependency Injection. See Havit.CastleWindsor.WebForms.Example appliction.
 
 ## Troubleshooting
-1. If you hit error saying page (or user control) cannot be created because of missing contructor with zero arguments, check if you switched you project to .NET FW 4.7.2.
-
-## Licence
-MIT
+1. If you hit error, that page (or user control) cannot be created because of missing contructor with zero arguments, check if you had switched your project to .NET FW 4.7.2.
