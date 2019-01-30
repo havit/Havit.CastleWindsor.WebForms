@@ -7,14 +7,12 @@
 
   <!-- NuGet -->
   <PropertyGroup>
-	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-	<PackageVersion>1.8.2</PackageVersion>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageVersion>1.8.4</PackageVersion>
 	<IncludeContentInPack>true</IncludeContentInPack>
 	<Description>HAVIT .NET Framework Extensions - Castle Windsor support for WebForms</Description>
-	<!-- Cílíme jen na WebForms, kde contentFiles nemá smysl (protože WebForms nepoužívají nový csproj, tudíž nepoužívají PackageReference, ale packages.config. -->
+	<!-- Targettig to WebForms, contentFiles is useless (WebForms does not use new csproj format, therefore does not use PackageReference but packages.config. -->
 	<ContentTargetFolders>content</ContentTargetFolders>
-	<Company>HAVIT</Company>
-	<Authors>HAVIT</Authors>
   </PropertyGroup>
   
   <ItemGroup>
