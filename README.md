@@ -18,11 +18,11 @@ Check web.config and targetFramework in httpRuntime section. Both must be set to
 2. Add nuget package **Havit.CastleWindsor.WebForms**. *Don't forget to reinstall other nuget packges, if you changed Target framework in previous step.*
 3. Install nuget packge **Castle.Windsor**.
 4. Add this initiaizing code to **Application_Start** method in **Global.asax**. Extension method AddWindsorContainer will initialize new container and will use it for resolving dependencies. 
-```c-sharp
+```csharp
 IWindsorContainer container = this.AddWindsorContainer();
 ```
 5. Also add using to the header of global.asax
-```c-sharp
+```csharp
 using Havit.CastleWindsor.WebForms;
 ```
 
