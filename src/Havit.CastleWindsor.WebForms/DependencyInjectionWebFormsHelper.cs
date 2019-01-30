@@ -65,7 +65,7 @@ namespace Havit.CastleWindsor.WebForms
 
 				if (nonPublicInstanceProperties.Length > 0)
 				{
-					throw new NotSupportedException(String.Format("InjectAttribute cannot be used on a non public property. It is used on property {0} in {1}.",
+					throw new NotSupportedException(String.Format("InjectAttribute cannot be used on a non public property. It is used on the property {0} in {1}.",
 						nonPublicInstanceProperties.First().Name, nonPublicInstanceProperties.First().DeclaringType.FullName));
 				}
 
@@ -74,7 +74,7 @@ namespace Havit.CastleWindsor.WebForms
 
 				if (staticProperties.Length > 0)
 				{
-					throw new NotSupportedException(String.Format("InjectAttribute cannot be used on a static property. It is used on property {0} in {1}.",
+					throw new NotSupportedException(String.Format("InjectAttribute cannot be used on a static property. It is used on the property {0} in {1}.",
 						staticProperties.First().Name, staticProperties.First().DeclaringType.FullName));
 				}
 

@@ -4,7 +4,7 @@
     {
         public string MyMethod()
         {
-            return "Hello from dependency!";
+            return "Hello from a dependency!";
         }
     }
 }

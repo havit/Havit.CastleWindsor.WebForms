@@ -43,15 +43,15 @@ namespace Havit.CastleWindsor.WebForms
 			// Try the container
 			object result = null;
 
-			// protects repeated registration to CastleWindsor in case or first parallel request
+			// protects repeated registration to CastleWindsor in case of parallel requests
 			lock (serviceType)
 			{
-			// We must register dynamically compiled resources (pages, controls, master pages, handlers ...)
-			if ((typeof(UserControl).IsAssignableFrom(serviceType) ||    // User controls (.ascx) and event Master Pages (.master) inherit from UserControl
-				typeof(IHttpHandler).IsAssignableFrom(serviceType)) &&   // Geneirc handlers (.ashx) and also pages (.aspx) inherit from IHttpHandler
-				!Container.Kernel.HasComponent(serviceType))
-			{
-                // Lifestyle is *Transient* 
+				// We must register dynamically compiled resources (pages, controls, master pages, handlers ...)
+				if ((typeof(UserControl).IsAssignableFrom(serviceType) ||    // User controls (.ascx) and event Master Pages (.master) inherit from UserControl
+					typeof(IHttpHandler).IsAssignableFrom(serviceType)) &&   // Geneirc handlers (.ashx) and also pages (.aspx) inherit from IHttpHandler
+					!Container.Kernel.HasComponent(serviceType))
+				{
+					// Lifestyle is *Transient* 
 					// If it would be PerWebRequest, we couldn't use the same control on one page twice - resolved would be only the first, and the second would be reused)
 					Container.Register(Component.For(serviceType).ImplementedBy(serviceType).LifestyleTransient());
 				}
@@ -62,7 +62,7 @@ namespace Havit.CastleWindsor.WebForms
 			{
 				result = Container.Resolve(serviceType);
 				// And because transient, we must release component on end request - else we would make memory leaks
-				HttpContext.Current.AddOnRequestCompleted(_ => Container.Release(result)); // release objektu na konci requestu, abychom předešli memory-leaks
+				HttpContext.Current.AddOnRequestCompleted(_ => Container.Release(result)); 
 				
 				return result;
 			}

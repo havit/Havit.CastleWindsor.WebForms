@@ -10,7 +10,7 @@
 namespace Havit.CastleWindsor.WebForms.Example {
     
     
-    public partial class _Default {
+    public partial class DefaultPage {
         
         /// <summary>
         /// litHello control.

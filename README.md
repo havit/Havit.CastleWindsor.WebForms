@@ -4,7 +4,7 @@ Implementation of Castle Windsor DI container to ASP.NET WebForms 4.7.2. In prev
 
 ## Instalation to existing project
 
-1. First you must switch *Target framework* for your project to .NET Framework 4.7.2. If you don't have installed .NET Framework 4.7.2 developer pack. You can download it from [here](https://www.microsoft.com/net/download/thank-you/net472-developer-pack). 
+1. Switch *Target framework* for your project to .NET Framework 4.7.2. If you don't have installed .NET Framework 4.7.2 developer pack. You can download it from [here](https://www.microsoft.com/net/download/thank-you/net472-developer-pack). 
 
 Check web.config and targetFramework in httpRuntime section. Both must be set to 4.7.2.
 
@@ -45,12 +45,12 @@ There are many areas you can use Dependency Injection in WebForms applications n
 Because it is not possible to use Dependency Injection through WebOjectActivator in Web Services (*.asmx), we added a workaround for this case, so you can do dependency injection to web services via properties. 
 
 ### How to inject to Web Services
-1. Web Service must inherit from abstract class **Havit.CastleWindsor.WebForms.InjectableWebServiceBase**
-2. Every property, you want to inject must be marked with attribute **Havit.CastleWindsor.WebForms.InjectAttribute]**
+1. Web Service must inherit from the abstract class **Havit.CastleWindsor.WebForms.InjectableWebServiceBase**
+2. Every property, you want to inject must be marked with the attribute **Havit.CastleWindsor.WebForms.InjectAttribute**
 3. Every property, you want to inject must have a **public getter and setter**
 
 ## Example 
-We have prepared a simple example appliction with one page, where is used Dependency Injection. See Havit.CastleWindsor.WebForms.Example appliction.
+We have prepared a simple example appliction with one page and one web service with Dependency Injection. See Havit.CastleWindsor.WebForms.Example appliction.
 
 ## Troubleshooting
-1. If you hit error, that page (or user control) cannot be created because of missing contructor with zero arguments, check if you had switched your project to .NET FW 4.7.2.
+1. If you hit the error, that a page (or an user control) cannot be created because of missing a contructor with zero arguments, check if you had switched your project to .NET FW 4.7.2 (don't forget to check compilation and httpRuntime elements in the web.config file).

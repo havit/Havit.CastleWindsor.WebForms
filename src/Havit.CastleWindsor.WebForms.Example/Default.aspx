@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="Default.aspx.cs" Inherits="Havit.CastleWindsor.WebForms.Example._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="Default.aspx.cs" Inherits="Havit.CastleWindsor.WebForms.Example.DefaultPage" %>
 
 <html>
     <head>

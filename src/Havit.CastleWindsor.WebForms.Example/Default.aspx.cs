@@ -3,11 +3,11 @@ using System.Web.UI;
 
 namespace Havit.CastleWindsor.WebForms.Example
 {
-    public partial class _Default : Page
+    public partial class DefaultPage : Page
     {
         private readonly IMyDependecy myDependecy;
 
-        public _Default(IMyDependecy myDependecy)
+        public DefaultPage(IMyDependecy myDependecy)
         {
             this.myDependecy = myDependecy;
         }

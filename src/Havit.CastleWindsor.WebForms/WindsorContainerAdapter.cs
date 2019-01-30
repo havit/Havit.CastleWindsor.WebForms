@@ -11,7 +11,7 @@ namespace Havit.CastleWindsor.WebForms
 		private static object _lock = new object();
 
 		/// <summary>
-		/// Add a new Castle Windsor Container in ASP.NET application. If there is WebObjectActivator already registered,
+		/// Adds a new Castle Windsor Container in ASP.NET application. If there is WebObjectActivator already registered,
 		/// it will return the registered isntance. When the new WebObjectActivator can't resolve the type, the previous WebObjectActivator
 		/// will be used. If the previous WebObjectActivator can't resolve it either, DefaultCreateInstance will be used
 		/// which creates instance through none public default constructor based on reflection.
