@@ -22,7 +22,7 @@ namespace Havit.CastleWindsor.WebForms
 		private readonly ConcurrentDictionary<Type, bool> _typesCannotResolve = new ConcurrentDictionary<Type, bool>(); // there is no ConcurrentHashSet in .NET FW.
 
 		public ContainerServiceProvider(IServiceProvider next)
-		{
+		{			
 			NextServiceProvider = next;
 			HostingEnvironment.RegisterObject(this);
 		}
@@ -53,7 +53,7 @@ namespace Havit.CastleWindsor.WebForms
 				{
 					// Lifestyle is *Transient* 
 					// If it would be PerWebRequest, we couldn't use the same control on one page twice - resolved would be only the first, and the second would be reused)
-					Container.Register(Component.For(serviceType).ImplementedBy(serviceType).LifestyleTransient());
+					Container.Register(Component.For(serviceType).ImplementedBy(serviceType).LifestyleTransient().NamedAutomatically(serviceType.AssemblyQualifiedName));
 				}
 			}
 
