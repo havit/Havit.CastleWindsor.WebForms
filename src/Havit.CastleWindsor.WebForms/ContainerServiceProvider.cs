@@ -1,7 +1,9 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.ModelBuilder.Inspectors;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Hosting;
@@ -9,12 +11,12 @@ using System.Web.UI;
 
 namespace Havit.CastleWindsor.WebForms
 {
-    /// <summary>
-    /// The Castle Windsor adapter for WebObjectActivator.
-    /// </summary>
-    internal class ContainerServiceProvider : IServiceProvider, IRegisteredObject
+	/// <summary>
+	/// The Castle Windsor adapter for WebObjectActivator.
+	/// </summary>
+	internal class ContainerServiceProvider : IServiceProvider, IRegisteredObject
 	{
-		public IWindsorContainer Container { get; } = new WindsorContainer();
+		public IWindsorContainer Container { get; }
 
 		internal IServiceProvider NextServiceProvider { get; }
 
@@ -22,7 +24,12 @@ namespace Havit.CastleWindsor.WebForms
 		private readonly ConcurrentDictionary<Type, bool> _typesCannotResolve = new ConcurrentDictionary<Type, bool>(); // there is no ConcurrentHashSet in .NET FW.
 
 		public ContainerServiceProvider(IServiceProvider next)
-		{			
+		{
+			var windsorContainer = new WindsorContainer();
+			// We don't want to inject properties, only ctors
+			windsorContainer.Kernel.ComponentModelBuilder.RemoveContributor(windsorContainer.Kernel.ComponentModelBuilder.Contributors.OfType<PropertiesDependenciesModelInspector>().Single());
+
+			Container = windsorContainer;
 			NextServiceProvider = next;
 			HostingEnvironment.RegisterObject(this);
 		}
@@ -62,8 +69,8 @@ namespace Havit.CastleWindsor.WebForms
 			{
 				result = Container.Resolve(serviceType);
 				// And because transient, we must release component on end request - else we would make memory leaks
-				HttpContext.Current.AddOnRequestCompleted(_ => Container.Release(result)); 
-				
+				HttpContext.Current.AddOnRequestCompleted(_ => Container.Release(result));
+
 				return result;
 			}
 
