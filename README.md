@@ -1,5 +1,7 @@
 # Havit.CastleWindsor.WebForms
 
+[![NuGet Package](https://img.shields.io/nuget/v/Havit.CastleWindsor.WebForms.svg)](https://www.nuget.org/packages/Havit.CastleWindsor.WebForms) ![Build](https://img.shields.io/azure-devops/build/havit/dev/287.svg)
+
 Implementation of Castle Windsor DI container to ASP.NET WebForms 4.7.2. In previous versions there is no direct support due to mising extensibility point **HttpRuntime.WebObjectActivator**. You can find more details in [news article](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 ## Instalation to existing project
