@@ -15,7 +15,7 @@ namespace Havit.CastleWindsor.WebForms.Example
 		[WebMethod]
 		public string SayHello()
 		{
-			return MyDependecy.MyMethod();
+			return MyDependecy.SayHello();
 		}
 	}
 }

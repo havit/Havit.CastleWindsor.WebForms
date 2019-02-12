@@ -9,7 +9,7 @@ namespace Havit.CastleWindsor.WebForms.Example
         public void Application_Start(object sender, EventArgs e)
         {
            var container = this.AddWindsorContainer();
-            container.Register(Component.For<IMyDependecy>().ImplementedBy<MyDependency>());
+            container.Register(Component.For<IMyDependecy>().ImplementedBy<MyDependency>().LifestyleSingleton());
         }
     }
 }

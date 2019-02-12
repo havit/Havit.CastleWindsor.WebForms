@@ -2,6 +2,6 @@
 {
     public interface IMyDependecy
     {
-        string MyMethod();
+        string SayHello();
     }
 }

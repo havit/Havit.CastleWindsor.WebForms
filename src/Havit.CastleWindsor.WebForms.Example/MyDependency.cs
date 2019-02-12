@@ -2,7 +2,7 @@
 {
     public class MyDependency : IMyDependecy
     {
-        public string MyMethod()
+        public string SayHello()
         {
             return "Hello from a dependency!";
         }

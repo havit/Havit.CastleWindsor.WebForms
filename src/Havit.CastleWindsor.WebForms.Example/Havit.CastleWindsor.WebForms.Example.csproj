@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="DemoControl.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="WebService.asmx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoControl.ascx.cs">
+      <DependentUpon>DemoControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoControl.ascx.designer.cs">
+      <DependentUpon>DemoControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
