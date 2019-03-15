@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using Castle.Facilities.AspNet.SystemWeb;
 using Castle.MicroKernel.Context;
 using Castle.MicroKernel.Lifestyle;
 using Castle.MicroKernel.Lifestyle.Scoped;
@@ -17,7 +18,7 @@ namespace Havit.CastleWindsor.WebForms.Lifestyles
 		/// <inheritdoc />
 		public ILifetimeScope GetScope(CreationContext context)
 		{
-			if ((HttpContext.Current != null) && (PerWebRequestLifestyleModuleUtils.IsInitialized))
+			if (HttpContext.Current != null)
 			{
 				return webRequestScopeAccessor.GetScope(context);
 			}
