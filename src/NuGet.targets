@@ -1,0 +1,35 @@
+<Project>
+
+  <!-- NuGet -->
+  <PropertyGroup>
+    <Authors>HAVIT</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIconUrl>https://www.gravatar.com/avatar/e59ffb10448162f0c6d6b5ae3fecd0ce?s=64</PackageIconUrl>
+
+    <!-- We do not have any content. -->
+    <IncludeContentInPack>false</IncludeContentInPack>
+  </PropertyGroup>
+  <!-- /NuGet -->
+
+  <!-- NuGet -->
+  <PropertyGroup>
+    <!-- Source: https://github.com/dotnet/sourcelink/#using-sourcelink -->
+    <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Optional: Include the PDB in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All" />
+  </ItemGroup>
+  <!-- /NuGet -->
+
+  <!-- Publish NuGet -->
+  <PropertyGroup>
+    <PackageOutputPath Condition="'$(PublishDirectory)' != ''">$(PublishDirectory)\PublicNuGets</PackageOutputPath>
+  </PropertyGroup>
+  <!-- /Publish NuGet -->
+
+</Project>
