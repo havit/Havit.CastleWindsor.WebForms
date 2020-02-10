@@ -8,7 +8,7 @@
   <!-- NuGet -->
   <Import Project="../NuGet.targets" />
   <PropertyGroup>
-    <PackageVersion>1.8.9</PackageVersion>
+    <PackageVersion>1.8.10</PackageVersion>
     <IncludeContentInPack>true</IncludeContentInPack>
     <Description>HAVIT .NET Framework Extensions - Castle Windsor support for WebForms</Description>
     <!-- Targettig to WebForms, contentFiles is useless (WebForms does not use new csproj format, therefore does not use PackageReference but packages.config. -->

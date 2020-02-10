@@ -60,6 +60,10 @@ namespace Havit.CastleWindsor.WebForms.Lifestyles
             Dispose(false);
         }
 
+        /// <summary>
+        /// Method checks if <see cref="PerWebRequestLifestyleModule" /> is initialized because of situations, where 
+        /// HttpContext.Current exists, but .Request does not. For example in Application_Start in global.asax
+        /// </summary>
         private static bool IsWebRequestModuleInitialized()
         {
             var fieldInfo = typeof(PerWebRequestLifestyleModule).GetField("initialized", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.GetField);
