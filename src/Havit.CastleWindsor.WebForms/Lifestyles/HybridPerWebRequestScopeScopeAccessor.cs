@@ -16,12 +16,22 @@ namespace Havit.CastleWindsor.WebForms.Lifestyles
         private readonly IScopeAccessor webRequestScopeAccessor = new WebRequestScopeAccessor();
         private readonly IScopeAccessor lifetimeScopeAccessor = new LifetimeScopeAccessor();
 
+        private static bool isPerWebReqzestLifestyleModuleInitialized;
+
         /// <inheritdoc />
         public ILifetimeScope GetScope(CreationContext context)
         {
-            if (HttpContext.Current != null && IsWebRequestModuleInitialized())
+            if (HttpContext.Current != null)
             {
-                return webRequestScopeAccessor.GetScope(context);
+                if (!isPerWebReqzestLifestyleModuleInitialized)
+                {
+                    isPerWebReqzestLifestyleModuleInitialized = IsWebRequestModuleInitialized();
+                }
+
+                if (isPerWebReqzestLifestyleModuleInitialized)
+                {
+                    return webRequestScopeAccessor.GetScope(context);
+                }
             }
 
             return lifetimeScopeAccessor.GetScope(context);
