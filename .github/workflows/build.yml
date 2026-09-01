@@ -42,5 +42,16 @@ jobs:
       with:
         name: PublicNuGets
         path: a/PublicNuGets/*.nupkg
-        compression-level: 0 
+        compression-level: 0
         if-no-files-found: error
+
+    - name: Add publish instructions to summary
+      shell: pwsh
+      run: |
+        @'
+        # How to publish artifacts
+        1. Download the `PublicNuGets` artifact.
+        2. Unzip the archive.
+        3. Open [Upload Package](https://www.nuget.org/packages/manage/upload) page.
+        4. Upload the unzipped `Havit.CastleWindsor.WebForms.*.nupkg`.
+        '@ | Add-Content -Path $env:GITHUB_STEP_SUMMARY
